@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import Card from './components/card'
+import tokoh from './utils/tokoh.json'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 className="App-header">PARA PENCARI ILMU, ANJAY ILMU</h1>
+      <div className="list">
+        {
+          tokoh.map((item) => {
+            return <Card title={item.nama} image={item.image} desc={item.desc}/>
+          })
+        }
+      </div>
     </div>
   );
 }
