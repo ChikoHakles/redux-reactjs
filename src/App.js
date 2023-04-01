@@ -1,30 +1,22 @@
-import { Provider } from 'react-redux';
 import './App.css';
-import store from './app/store';
 import Input from './components/Input';
-
-const todoList = [
-  {
-    item: 'todo',
-    done: false,
-    id: 39084092380958
-  },
-  {
-    item: 'todo1',
-    done: true,
-    id: 34308504398949
-  }
-]
+import TodoItem from './components/TodoItem';
+import { useSelector } from 'react-redux';
 
 function App() {
+  //slice todos ini disimpan di state, makanya harus ambil di state dlu (state.todos) baru abis itu ambil state todoList yg di dalem nya
+  const todoList = useSelector((state) => state.todos.todoList);
   return (
-    <Provider store={store}>
       <div className='app'>
         <div className='container'>
+          <div className='todo-container'>
+            {todoList.map((todo) => {
+              return(<TodoItem item={todo.item} done={todo.done} id={todo.id}/>)
+            })}
+          </div>
           <Input/>
         </div>
       </div>
-    </Provider>
   );
 }
 

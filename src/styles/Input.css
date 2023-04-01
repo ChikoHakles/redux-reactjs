@@ -22,5 +22,5 @@ button {
     border: none;
     border-radius: 0.8em;
     height: 2.2em;
-    width: 3em;
+    min-width: 3em;
 }
