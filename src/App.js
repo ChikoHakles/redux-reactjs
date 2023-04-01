@@ -1,19 +1,30 @@
+import { Provider } from 'react-redux';
 import './App.css';
-import Card from './components/card'
-import tokoh from './utils/tokoh.json'
+import store from './app/store';
+import Input from './components/Input';
+
+const todoList = [
+  {
+    item: 'todo',
+    done: false,
+    id: 39084092380958
+  },
+  {
+    item: 'todo1',
+    done: true,
+    id: 34308504398949
+  }
+]
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="App-header">PARA PENCARI ILMU, ANJAY ILMU</h1>
-      <div className="list">
-        {
-          tokoh.map((item) => {
-            return <Card title={item.nama} image={item.image} desc={item.desc}/>
-          })
-        }
+    <Provider store={store}>
+      <div className='app'>
+        <div className='container'>
+          <Input/>
+        </div>
       </div>
-    </div>
+    </Provider>
   );
 }
 
